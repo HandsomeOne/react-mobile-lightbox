@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 1000px;
+}
+
+.container {
+  width: 75%;
+  margin: 10px;
+  float: right;
+  outline: 1px solid #f00;
+}

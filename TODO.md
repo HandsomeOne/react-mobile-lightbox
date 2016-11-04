@@ -1,0 +1,4 @@
+- arrange four images in a square
+- disable background scrolling
+- custom style
+- click wait for double-click

@@ -1,0 +1,52 @@
+{
+  "name": "react-mobile-lightbox",
+  "version": "0.0.1",
+  "description": "An image lightbox React component for mobile web.",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "webpack-dev-server -d --hot --inline --content-base ./test --host 0.0.0.0",
+    "build": "set NODE_ENV=production&&webpack -p"
+  },
+  "keywords": [
+    "lightbox",
+    "images"
+  ],
+  "author": "Zhou Qi <i@handsomeone.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.25.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
+    "file-loader": "^0.9.0",
+    "postcss-loader": "^1.1.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0",
+    "react-dom": "^0.14.0 || ^15.0.0"
+  },
+  "dependencies": {
+    "swiper": "^3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HandsomeOne/react-mobile-lightbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HandsomeOne/react-mobile-lightbox/issues"
+  },
+  "homepage": "https://github.com/HandsomeOne/react-mobile-lightbox#readme"
+}

@@ -1,0 +1,39 @@
+.images {
+  overflow: hidden;
+  margin-bottom: -2%;
+}
+
+.images > div {
+  float: left;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.large {
+  width: 100%;
+  padding: 25% 0;
+}
+
+.small {
+  width: 32%;
+  padding: 16% 0;
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+.small:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0,0,0,0.9);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: scroll;
+  align-items: center;
+}
