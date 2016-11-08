@@ -19,9 +19,9 @@ export default class Lightbox extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
   componentDidMount() {
-    this.swiper = new Swiper('.swiper-container', {
+    this.swiper = new Swiper(this.lightbox, {
       zoom: true,
-      pagination: '.swiper-pagination',
+      pagination: this.pagination,
       spaceBetween: 20,
     })
   }
@@ -56,11 +56,11 @@ export default class Lightbox extends Component {
       }</div>
       <div
         className={$.modal}
-        ref={(modal) => { this.modal = modal }}
+        ref={(e) => { this.modal = e }}
         style={{ visibility: this.state.visible ? 'visible' : 'hidden' }}
         onClick={this.closeModal}
       >
-        <div className="swiper-container">
+        <div className="swiper-container" ref={(e) => { this.lightbox = e }}>
           <div className="swiper-wrapper">{
             images.map((e, i) => <div
               key={i}
@@ -71,7 +71,7 @@ export default class Lightbox extends Component {
               </div>
             </div>)
           }</div>
-          <div className="swiper-pagination" />
+          <div className="swiper-pagination" ref={(e) => { this.pagination = e }} />
         </div>
       </div>
     </div>)

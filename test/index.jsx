@@ -4,7 +4,7 @@ import Lightbox from '../src/Lightbox'
 import $ from './style.css'
 
 ReactDOM.render(
-  (
+  (<div>
     <div className={$.container}>
       <Lightbox
         images={[
@@ -20,4 +20,14 @@ ReactDOM.render(
         ]}
       />
     </div>
-  ), document.getElementById('root'))
+    <div className={$.container}>
+      <Lightbox
+        images={[
+          '1.jpg',
+          '2.jpg',
+          '3.jpg',
+          '4.jpg',
+        ]}
+      />
+    </div>
+  </div>), document.getElementById('root'))
