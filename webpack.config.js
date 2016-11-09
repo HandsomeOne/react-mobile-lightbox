@@ -31,7 +31,7 @@ const config = {
     loaders: [
       {
         test: /\.css$/,
-        exclude: [/node_modules/, /css(\/|\\)raw/],
+        exclude: /node_modules/,
         loaders: [
           'style',
           'css?modules&localIdentName=[local]__[hash:base64:4]',
@@ -40,8 +40,8 @@ const config = {
       },
       {
         test: /\.css$/,
-        include: [/node_modules/, /css(\/|\\)raw/],
-        loaders: ['style', 'css', 'postcss'],
+        include: /node_modules/,
+        loaders: ['style', 'css'],
       },
       {
         test: /\.(js|jsx)$/,

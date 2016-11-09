@@ -18,6 +18,9 @@ ReactDOM.render(
           '8.jpg',
           '9.jpg',
         ]}
+        style={{
+          outline: '1px solid red',
+        }}
       />
     </div>
     <div className={$.container}>
@@ -27,6 +30,16 @@ ReactDOM.render(
           '2.jpg',
           '3.jpg',
           '4.jpg',
+        ]}
+        style={{
+          margin: '30px 0',
+        }}
+      />
+    </div>
+    <div className={$.container}>
+      <Lightbox
+        images={[
+          '1.jpg',
         ]}
       />
     </div>

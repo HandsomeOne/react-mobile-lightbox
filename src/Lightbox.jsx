@@ -1,13 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes as T } from 'react'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
-import './css/raw/swiper.css'
-import $ from './css/style.css'
-
-const T = React.PropTypes
-const propTypes = {
-  images: T.arrayOf(T.string),
-}
+import $ from './style.css'
 
 export default class Lightbox extends Component {
   constructor(props) {
@@ -38,7 +32,7 @@ export default class Lightbox extends Component {
   }
   render() {
     const images = this.props.images
-    return (<div>
+    return (<div style={this.props.style}>
       <div className={$.images}>{
         images.length === 1 ?
           <div
@@ -78,4 +72,7 @@ export default class Lightbox extends Component {
   }
 }
 
-Lightbox.propTypes = propTypes
+Lightbox.propTypes = {
+  images: T.arrayOf(T.string),
+  style: T.object,
+}

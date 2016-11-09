@@ -1,6 +1,5 @@
 .images {
   overflow: hidden;
-  margin-bottom: -2%;
 }
 
 .images > div {
@@ -36,4 +35,13 @@
   display: flex;
   overflow-x: scroll;
   align-items: center;
+}
+
+:global .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+:global .swiper-pagination-bullet {
+  background: white;
 }
