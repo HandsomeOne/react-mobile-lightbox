@@ -6,6 +6,9 @@
   "rules": {
     "semi": [2, "never"],
     "jsx-a11y/no-static-element-interactions": 0,
-    "jsx-a11y/img-has-alt": 0
+    "jsx-a11y/img-has-alt": 0,
+    "react/prop-types": [2, {
+      "ignore": ["style"]
+    }]
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes as T } from 'react'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
+import Matrix from './Matrix'
 import $ from './style.css'
 
 export default class Lightbox extends Component {
@@ -10,6 +11,7 @@ export default class Lightbox extends Component {
       index: 0,
       visible: false,
     }
+    this.openModal = this.openModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
   }
   componentDidMount() {
@@ -31,23 +33,9 @@ export default class Lightbox extends Component {
     })
   }
   render() {
-    const images = this.props.images
+    const { images } = this.props
     return (<div style={this.props.style}>
-      <div className={$.images}>{
-        images.length === 1 ?
-          <div
-            className={$.large}
-            onClick={() => this.openModal(0)}
-            style={{ backgroundImage: `url(${images[0]})` }}
-          /> :
-          images.map((e, i) =>
-            <div
-              key={i}
-              className={$.small}
-              onClick={() => this.openModal(i)}
-              style={{ backgroundImage: `url(${e})` }}
-            />)
-      }</div>
+      <Matrix images={images} handleClick={this.openModal} />
       <div
         className={$.modal}
         ref={(e) => { this.modal = e }}
@@ -74,5 +62,4 @@ export default class Lightbox extends Component {
 
 Lightbox.propTypes = {
   images: T.arrayOf(T.string),
-  style: T.object,
 }

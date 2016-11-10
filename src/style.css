@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 
-.images > div {
+.large, .small {
   float: left;
   background-position: center center;
   background-repeat: no-repeat;
@@ -18,10 +18,17 @@
   width: 32%;
   padding: 16% 0;
   margin-right: 2%;
-  margin-bottom: 2%;
 }
 .small:nth-of-type(3n) {
   margin-right: 0;
+}
+
+.row {
+  margin-bottom: 2%;
+  overflow: auto;
+}
+.row:last-child {
+  margin-bottom: 0;
 }
 
 .modal {
