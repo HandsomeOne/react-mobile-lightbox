@@ -1,5 +1,5 @@
 - disable background scrolling
-- click wait for double-click
 - optimize single image
     - disable slider
     - configurable ratio
+- smooth in-and-out

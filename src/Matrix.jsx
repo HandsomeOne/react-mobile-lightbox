@@ -25,7 +25,7 @@ export default function Matrix(props) {
   return (
     <div className={$.images}>{
       groups.map((images, i) =>
-        <div className={$.row}>{
+        <div key={i} className={$.row}>{
           images.map((img, j) =>
             <div
               key={(i * column) + j}
