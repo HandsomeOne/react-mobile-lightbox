@@ -1,4 +1,3 @@
-- disable background scrolling
 - optimize single image
     - disable slider
     - configurable ratio

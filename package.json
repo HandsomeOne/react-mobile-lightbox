@@ -1,6 +1,6 @@
 {
   "name": "react-mobile-lightbox",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An image lightbox React component for mobile web.",
   "main": "lib/index.js",
   "scripts": {

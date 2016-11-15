@@ -27,6 +27,7 @@ export default class Lightbox extends Component {
     this.setState({
       visible: true,
     })
+    Lightbox.isVisible = true
   }
   handleClick() {
     if (this.closeTimeout === undefined) {
@@ -34,6 +35,7 @@ export default class Lightbox extends Component {
         this.setState({
           visible: false,
         })
+        Lightbox.isVisible = false
         delete this.closeTimeout
       }, 500)
     }
@@ -44,6 +46,11 @@ export default class Lightbox extends Component {
   }
 
   render() {
+    document.body.addEventListener('touchmove', Lightbox.stop)
+    document.body.addEventListener('mousemove', Lightbox.stop)
+    document.body.addEventListener('scroll', Lightbox.stop)
+    document.body.addEventListener('DOMMouseScroll', Lightbox.stop)
+
     const { images } = this.props
     return (<div style={this.props.style}>
       <Matrix images={images} handleClick={this.openModal} />
@@ -56,10 +63,7 @@ export default class Lightbox extends Component {
       >
         <div className="swiper-container" ref={(e) => { this.lightbox = e }}>
           <div className="swiper-wrapper">{
-            images.map((e, i) => <div
-              key={i}
-              className="swiper-slide"
-            >
+            images.map((e, i) => <div key={i} className="swiper-slide">
               <div className="swiper-zoom-container">
                 <img src={e} />
               </div>
@@ -74,4 +78,12 @@ export default class Lightbox extends Component {
 
 Lightbox.propTypes = {
   images: T.arrayOf(T.string),
+}
+
+Lightbox.isVisible = false
+Lightbox.stop = (e) => {
+  if (Lightbox.isVisible) {
+    e.preventDefault()
+    e.stopPropagation()
+  }
 }
