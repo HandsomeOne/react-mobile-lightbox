@@ -14,6 +14,8 @@ export default class Lightbox extends Component {
     this.openModal = this.openModal.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleDoubleClick = this.handleDoubleClick.bind(this)
+    this.eventListener = this.eventListener.bind(this);
+
   }
   componentDidMount() {
     this.swiper = new Swiper(this.lightbox, {
@@ -21,6 +23,11 @@ export default class Lightbox extends Component {
       pagination: this.pagination,
       spaceBetween: 20,
     })
+    
+    document.body.addEventListener('touchmove', this.eventListener)
+    document.body.addEventListener('mousemove', this.eventListener)
+    document.body.addEventListener('scroll', this.eventListener)
+    document.body.addEventListener('DOMMouseScroll', this.eventListener)
   }
   openModal(i) {
     this.swiper.slideTo(i, 0)
@@ -45,11 +52,23 @@ export default class Lightbox extends Component {
     delete this.closeTimeout
   }
 
+  eventListener(e) {
+    if (Lightbox.isVisible) {
+     e.preventDefault()
+     e.stopPropagation()
+    }
+  
+  }
+  
+
+  componentWillUnmount () {
+    document.body.removeEventListener('touchmove', this.eventListener)
+    document.body.removeEventListener('mousemove', this.eventListener)
+    document.body.removeEventListener('scroll', this.eventListener)
+    document.body.removeEventListener('DOMMouseScroll', this.eventListener)
+  }
+  
   render() {
-    document.body.addEventListener('touchmove', Lightbox.stop)
-    document.body.addEventListener('mousemove', Lightbox.stop)
-    document.body.addEventListener('scroll', Lightbox.stop)
-    document.body.addEventListener('DOMMouseScroll', Lightbox.stop)
 
     const { images } = this.props
     return (<div style={this.props.style}>
@@ -81,9 +100,3 @@ Lightbox.propTypes = {
 }
 
 Lightbox.isVisible = false
-Lightbox.stop = (e) => {
-  if (Lightbox.isVisible) {
-    e.preventDefault()
-    e.stopPropagation()
-  }
-}
